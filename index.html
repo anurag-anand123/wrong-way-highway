@@ -89,12 +89,12 @@
             justify-content: center;
 
             width: 100%;
-            padding: 60px 24px;
+            padding: 0 0 60px;
         }
 
         .hero {
             width: 100%;
-            max-width: 760px;
+            max-width: none;
             text-align: center;
         }
 
@@ -141,6 +141,7 @@
         }
 
         .showcase-invitation {
+            padding-inline: 20px;
             margin: 28px auto 0;
         }
 
@@ -188,46 +189,61 @@
             }
         }
 
-        .gameplay-video {
-            margin: 42px 0 0;
-            text-align: left;
-        }
-
-        .gameplay-video h2 {
-            margin: 0 0 14px;
-            font-size: 22px;
-            letter-spacing: -0.025em;
-        }
-
-        .video-frame {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            min-height: 200px;
+        .hero-banner {
+            position: relative;
+            isolation: isolate;
             overflow: hidden;
-            border-radius: 16px;
-            background: #111111;
+            padding: 64px 24px 60px;
+            background: #152035 url("images/featured graphics.png") center / cover;
+            color: #ffffff;
         }
 
-        .video-frame iframe {
-            display: block;
-            width: 100%;
-            height: 100%;
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            container-type: size;
+            pointer-events: none;
+        }
+
+        .hero-background iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* Overscan the landscape player to fill the banner on every screen. */
+            width: max(135cqw, 240cqh);
+            height: max(76cqw, 135cqh);
+            transform: translate(-50%, -50%);
             border: 0;
+            pointer-events: none;
         }
 
-        .gameplay-video p {
-            margin: 12px 0 0;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #555555;
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: rgba(7, 15, 30, 0.68);
         }
 
-        .gameplay-video a {
-            color: #1557b0;
-            text-underline-offset: 3px;
+        .hero-banner h1 {
+            color: #ffffff;
+            max-width: 900px;
+            margin-inline: auto;
+        }
+
+        .hero-banner .tagline {
+            color: #ffffff;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-background {
+                display: none;
+            }
         }
 
         .description {
+            width: calc(100% - 40px);
             max-width: 600px;
             margin: 34px auto 0;
 
@@ -277,7 +293,7 @@
             }
 
             main {
-                padding: 50px 20px;
+                padding: 0 0 50px;
             }
 
             .footer-inner {
@@ -319,6 +335,17 @@
 
         <section class="hero">
 
+            <div class="hero-banner">
+                <div class="hero-background" aria-hidden="true" inert>
+                    <iframe
+                        id="gameplay-player"
+                        title="Decorative gameplay background"
+                        data-src="https://www.youtube-nocookie.com/embed/5j3gRj9Xhcs?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=5j3gRj9Xhcs&amp;playsinline=1&amp;controls=0&amp;disablekb=1&amp;fs=0&amp;rel=0&amp;iv_load_policy=3"
+                        allow="autoplay; encrypted-media"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        tabindex="-1"
+                    ></iframe>
+                </div>
             <img
                 class="game-icon"
                 src="images/gameicon.png"
@@ -334,6 +361,8 @@
                 Drive against the traffic and survive.
             </p>
 
+            </div>
+
             <div class="status">
                 Coming Soon
             </div>
@@ -344,21 +373,6 @@
                 </a>
                 <p>Step onto the highway. Explore the gameplay screenshots.</p>
             </div>
-
-            <section class="gameplay-video" aria-labelledby="video-title">
-                <h2 id="video-title">See the highway in motion.</h2>
-                <div class="video-frame">
-                    <iframe
-                        id="gameplay-player"
-                        title="Wrong Way Highway gameplay video"
-                        src="https://www.youtube-nocookie.com/embed/5j3gRj9Xhcs?autoplay=0&amp;mute=1&amp;loop=1&amp;playlist=5j3gRj9Xhcs&amp;playsinline=1&amp;rel=0"
-                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                    ></iframe>
-                </div>
-                <p>Gameplay preview · <a href="https://youtu.be/5j3gRj9Xhcs">Watch on YouTube</a></p>
-            </section>
 
             <p class="description">
                 Wrong Way Highway is a fast-paced mobile driving game
@@ -404,11 +418,19 @@
 </div>
 
 <script>
-    // Keep playback manual for visitors who prefer reduced motion.
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const player = document.getElementById('gameplay-player');
-        player.src = player.src.replace('autoplay=0', 'autoplay=1');
+    const backgroundPlayer = document.getElementById('gameplay-player');
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function updateBackgroundPlayback() {
+        if (motionPreference.matches) {
+            backgroundPlayer.removeAttribute('src');
+        } else {
+            backgroundPlayer.src = backgroundPlayer.dataset.src;
+        }
     }
+
+    updateBackgroundPlayback();
+    motionPreference.addEventListener('change', updateBackgroundPlayback);
 </script>
 
 </body>

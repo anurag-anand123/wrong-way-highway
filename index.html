@@ -98,6 +98,15 @@
             text-align: center;
         }
 
+        .game-icon {
+            display: block;
+            width: clamp(140px, 28vw, 220px);
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 28px;
+            border-radius: 22%;
+        }
+
         h1 {
             margin: 0 0 18px;
 
@@ -129,6 +138,54 @@
 
             font-size: 14px;
             color: #555555;
+        }
+
+        .showcase-invitation {
+            margin: 28px auto 0;
+        }
+
+        .showcase-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            max-width: 100%;
+            padding: 16px 26px;
+            border-radius: 14px;
+            background: #1557b0;
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 650;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(21, 87, 176, 0.18);
+            transition: background 180ms ease, transform 180ms ease;
+        }
+
+        .showcase-button:hover {
+            background: #10468e;
+            transform: translateY(-2px);
+        }
+
+        .showcase-button:focus-visible {
+            outline: 3px solid #1557b0;
+            outline-offset: 5px;
+        }
+
+        .showcase-invitation p {
+            margin: 12px 0 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666666;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .showcase-button {
+                transition: none;
+            }
+
+            .showcase-button:hover {
+                transform: none;
+            }
         }
 
         .description {
@@ -223,6 +280,15 @@
 
         <section class="hero">
 
+            <img
+                class="game-icon"
+                src="images/gameicon.png"
+                alt="Wrong Way Highway game icon featuring a blue car and traffic cone"
+                width="1024"
+                height="1024"
+                fetchpriority="high"
+            >
+
             <h1>Wrong Way Highway</h1>
 
             <p class="tagline">
@@ -231,6 +297,13 @@
 
             <div class="status">
                 Coming Soon
+            </div>
+
+            <div class="showcase-invitation">
+                <a class="showcase-button" href="showcase.html">
+                    Take a first look <span aria-hidden="true">↗</span>
+                </a>
+                <p>Step onto the highway. Explore the gameplay screenshots.</p>
             </div>
 
             <p class="description">

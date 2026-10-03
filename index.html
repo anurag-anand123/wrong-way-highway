@@ -188,6 +188,45 @@
             }
         }
 
+        .gameplay-video {
+            margin: 42px 0 0;
+            text-align: left;
+        }
+
+        .gameplay-video h2 {
+            margin: 0 0 14px;
+            font-size: 22px;
+            letter-spacing: -0.025em;
+        }
+
+        .video-frame {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            min-height: 200px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #111111;
+        }
+
+        .video-frame iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .gameplay-video p {
+            margin: 12px 0 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #555555;
+        }
+
+        .gameplay-video a {
+            color: #1557b0;
+            text-underline-offset: 3px;
+        }
+
         .description {
             max-width: 600px;
             margin: 34px auto 0;
@@ -306,6 +345,21 @@
                 <p>Step onto the highway. Explore the gameplay screenshots.</p>
             </div>
 
+            <section class="gameplay-video" aria-labelledby="video-title">
+                <h2 id="video-title">See the highway in motion.</h2>
+                <div class="video-frame">
+                    <iframe
+                        id="gameplay-player"
+                        title="Wrong Way Highway gameplay video"
+                        src="https://www.youtube-nocookie.com/embed/5j3gRj9Xhcs?autoplay=0&amp;mute=1&amp;loop=1&amp;playlist=5j3gRj9Xhcs&amp;playsinline=1&amp;rel=0"
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p>Gameplay preview · <a href="https://youtu.be/5j3gRj9Xhcs">Watch on YouTube</a></p>
+            </section>
+
             <p class="description">
                 Wrong Way Highway is a fast-paced mobile driving game
                 where you drive against incoming traffic, dodge vehicles,
@@ -348,6 +402,14 @@
     </footer>
 
 </div>
+
+<script>
+    // Keep playback manual for visitors who prefer reduced motion.
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const player = document.getElementById('gameplay-player');
+        player.src = player.src.replace('autoplay=0', 'autoplay=1');
+    }
+</script>
 
 </body>
 </html>

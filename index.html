@@ -229,6 +229,116 @@
             }
         }
 
+        .shot-link {
+            display: block;
+            cursor: zoom-in;
+            border-radius: 10px;
+        }
+
+        .shot-link:focus-visible,
+        .lightbox button:focus-visible {
+            outline: 3px solid #2373d9;
+            outline-offset: 5px;
+        }
+
+        body.viewer-open {
+            overflow: hidden;
+        }
+
+        .lightbox {
+            width: min(1100px, calc(100% - 24px));
+            max-width: none;
+            height: calc(100dvh - 24px);
+            max-height: none;
+            padding: 18px;
+            border: 0;
+            border-radius: 12px;
+            background: #11151c;
+            color: #ffffff;
+        }
+
+        .lightbox[open] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lightbox::backdrop {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .lightbox-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .lightbox-toolbar p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .lightbox button {
+            min-width: 44px;
+            min-height: 44px;
+            padding: 8px 12px;
+            border: 1px solid #596575;
+            border-radius: 6px;
+            background: #252b35;
+            color: #ffffff;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .lightbox-stage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            min-height: 0;
+            gap: 12px;
+            padding-block: 18px;
+        }
+
+        .lightbox-stage img {
+            width: auto;
+            height: auto;
+            max-width: calc(100% - 112px);
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .lightbox-hint {
+            margin: 0;
+            text-align: center;
+            font-size: 12px;
+            color: #c2c7d0;
+        }
+
+        @media (max-width: 600px) {
+            .lightbox-stage {
+                position: relative;
+                padding-bottom: 62px;
+            }
+
+            .lightbox-stage img {
+                max-width: 100%;
+            }
+
+            .lightbox-stage button {
+                position: absolute;
+                bottom: 6px;
+            }
+
+            .lightbox-stage .previous {
+                left: calc(50% - 54px);
+            }
+
+            .lightbox-stage .next {
+                right: calc(50% - 54px);
+            }
+        }
+
         .hero-banner {
             position: relative;
             isolation: isolate;
@@ -429,36 +539,36 @@
                 <h2 id="gallery-title">Life in the wrong lane.</h2>
                 <p class="gallery-intro">Explore the world of Wrong Way Highway, from open roads to close calls.</p>
                 <figure>
-                    <img src="images/web/featured-graphics.jpg" width="1024" height="500" loading="lazy" decoding="async" alt="Wrong Way Highway promotional artwork showing a blue car dodging a truck and traffic cones">
-                    <figcaption>A first look at the highway.</figcaption>
+                    <a class="shot-link" href="images/web/featured-graphics.jpg" data-caption="A first look at the highway." aria-label="Enlarge image: A first look at the highway."><img src="images/web/featured-graphics.jpg" width="1024" height="500" loading="lazy" decoding="async" alt="Wrong Way Highway promotional artwork showing a blue car dodging a truck and traffic cones"></a>
+                        <figcaption>A first look at the highway.</figcaption>
                 </figure>
                 <div class="screenshot-grid">
                     <figure>
-                        <img src="screenshots/web/2.jpg" width="540" height="960" loading="lazy" decoding="async" alt="Blue sports car swerving beside an oncoming red truck beneath a freight train bridge">
+                        <a class="shot-link" href="screenshots/web/2.jpg" data-caption="Against the traffic" aria-label="Enlarge image: Against the traffic"><img src="screenshots/web/2.jpg" width="540" height="960" loading="lazy" decoding="async" alt="Blue sports car swerving beside an oncoming red truck beneath a freight train bridge"></a>
                         <figcaption>Against the traffic</figcaption>
                     </figure>
                     <figure>
-                        <img src="screenshots/web/10d.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Blue car passing trucks and a vehicle transporter under a pink dusk sky">
+                        <a class="shot-link" href="screenshots/web/10d.jpg" data-caption="Dusk on the highway" aria-label="Enlarge image: Dusk on the highway"><img src="screenshots/web/10d.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Blue car passing trucks and a vehicle transporter under a pink dusk sky"></a>
                         <figcaption>Dusk on the highway</figcaption>
                     </figure>
                     <figure>
-                        <img src="screenshots/web/9b.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Shielded blue car beneath a flipping vehicle on a city street">
+                        <a class="shot-link" href="screenshots/web/9b.jpg" data-caption="A little protection" aria-label="Enlarge image: A little protection"><img src="screenshots/web/9b.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Shielded blue car beneath a flipping vehicle on a city street"></a>
                         <figcaption>A little protection</figcaption>
                     </figure>
                     <figure>
-                        <img src="screenshots/web/4h.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Blue car threading a gap between oncoming container trucks">
+                        <a class="shot-link" href="screenshots/web/4h.jpg" data-caption="Thread the gap" aria-label="Enlarge image: Thread the gap"><img src="screenshots/web/4h.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Blue car threading a gap between oncoming container trucks"></a>
                         <figcaption>Thread the gap</figcaption>
                     </figure>
                     <figure>
-                        <img src="screenshots/web/2i.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Car tumbling above a green truck with glowing red trails">
+                        <a class="shot-link" href="screenshots/web/2i.jpg" data-caption="An unexpected turn" aria-label="Enlarge image: An unexpected turn"><img src="screenshots/web/2i.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Car tumbling above a green truck with glowing red trails"></a>
                         <figcaption>An unexpected turn</figcaption>
                     </figure>
                     <figure>
-                        <img src="screenshots/web/5l.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Car suspended above an orange freight container near a railway bridge">
+                        <a class="shot-link" href="screenshots/web/5l.jpg" data-caption="Above the highway" aria-label="Enlarge image: Above the highway"><img src="screenshots/web/5l.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Car suspended above an orange freight container near a railway bridge"></a>
                         <figcaption>Above the highway</figcaption>
                     </figure>
                     <figure>
-                        <img src="screenshots/web/3n.jpg" width="555" height="1200" loading="lazy" decoding="async" alt="Shielded blue car approaching two trucks flipping into the air">
+                        <a class="shot-link" href="screenshots/web/3n.jpg" data-caption="Shield in action" aria-label="Enlarge image: Shield in action"><img src="screenshots/web/3n.jpg" width="555" height="1200" loading="lazy" decoding="async" alt="Shielded blue car approaching two trucks flipping into the air"></a>
                         <figcaption>Shield in action</figcaption>
                     </figure>
                 </div>
@@ -506,6 +616,20 @@
     </footer>
 
 </div>
+
+<dialog class="lightbox" aria-label="Game image viewer">
+    <div class="lightbox-toolbar">
+        <p id="lightbox-caption" aria-live="polite"></p>
+        <button class="close" type="button" aria-label="Close image viewer" autofocus>Close ×</button>
+    </div>
+    <div class="lightbox-stage">
+        <button class="previous" type="button" aria-label="Previous image">←</button>
+        <img id="lightbox-image" alt="">
+        <button class="next" type="button" aria-label="Next image">→</button>
+    </div>
+    <p class="lightbox-hint">Use arrow keys to browse · Escape to close</p>
+</dialog>
+<script src="script.js" defer></script>
 
 <script>
     const backgroundPlayer = document.getElementById('gameplay-player');

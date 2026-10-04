@@ -140,6 +140,33 @@
             color: #555555;
         }
 
+        .store-badges {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin: 18px auto 0;
+            padding: 12px;
+            width: calc(100% - 16px);
+        }
+
+        .store-badges a {
+            display: block;
+            flex: 0 0 auto;
+        }
+
+        .store-badges a:focus-visible {
+            outline: 3px solid #1557b0;
+            outline-offset: 6px;
+        }
+
+        .store-badges img {
+            display: block;
+            width: auto;
+            height: 48px;
+        }
+
         .showcase-invitation {
             padding-inline: 20px;
             margin: 28px auto 0;
@@ -296,6 +323,10 @@
                 padding: 0 0 50px;
             }
 
+            .hero-banner {
+                padding: 40px 20px;
+            }
+
             .footer-inner {
                 padding: 22px 20px;
                 flex-direction: column;
@@ -367,8 +398,18 @@
 
             </div>
 
+            <!-- Example destinations: replace with live product-page URLs before publishing. -->
+            <nav class="store-badges" aria-label="Pre-order and pre-registration">
+                <a href="https://example.com/app-store-preorder" aria-label="Pre-order on the App Store (example link)">
+                    <img src="badges/appstorepreord.png" width="270" height="90" alt="Pre-order on the App Store">
+                </a>
+                <a href="https://example.com/google-play-preregistration" aria-label="Pre-register on Google Play (example link)">
+                    <img src="badges/googleplayprereg.png" width="270" height="80" alt="Pre-register on Google Play">
+                </a>
+            </nav>
+
             <div class="status">
-                Coming Soon
+                Launching <time datetime="2026-10-26">October 26, 2026</time>
             </div>
 
             <div class="showcase-invitation">

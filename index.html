@@ -167,52 +167,65 @@
             height: 48px;
         }
 
-        .showcase-invitation {
-            padding-inline: 20px;
-            margin: 28px auto 0;
+        .home-gallery {
+            width: calc(100% - 40px);
+            max-width: 1040px;
+            margin: 40px auto 0;
+            padding-top: 32px;
+            border-top: 1px solid #eeeeee;
+            text-align: left;
         }
 
-        .showcase-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            max-width: 100%;
-            padding: 16px 26px;
-            border-radius: 14px;
-            background: #1557b0;
-            color: #ffffff;
-            font-size: 17px;
-            font-weight: 650;
-            text-decoration: none;
-            box-shadow: 0 8px 24px rgba(21, 87, 176, 0.18);
-            transition: background 180ms ease, transform 180ms ease;
+        .home-gallery h2 {
+            margin: 0 0 12px;
+            font-size: clamp(26px, 4vw, 36px);
+            letter-spacing: -0.035em;
         }
 
-        .showcase-button:hover {
-            background: #10468e;
-            transform: translateY(-2px);
+        .gallery-intro {
+            margin: 0 0 24px;
+            color: #555555;
+            line-height: 1.6;
         }
 
-        .showcase-button:focus-visible {
-            outline: 3px solid #1557b0;
-            outline-offset: 5px;
+        .home-gallery figure {
+            margin: 0;
+            min-width: 0;
         }
 
-        .showcase-invitation p {
-            margin: 12px 0 0;
-            font-size: 14px;
+        .home-gallery img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            background: #eeeeee;
+        }
+
+        .home-gallery figcaption {
+            margin-top: 10px;
+            font-size: 13px;
             line-height: 1.5;
-            color: #666666;
+            color: #555555;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .showcase-button {
-                transition: none;
-            }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: start;
+            gap: 28px 20px;
+            margin-top: 28px;
+        }
 
-            .showcase-button:hover {
-                transform: none;
+        @media (max-width: 700px) {
+            .screenshot-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 24px 14px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .screenshot-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -412,12 +425,44 @@
                 Launching <time datetime="2026-10-26">October 26, 2026</time>
             </div>
 
-            <div class="showcase-invitation">
-                <a class="showcase-button" href="showcase.html">
-                    Take a first look <span aria-hidden="true">↗</span>
-                </a>
-                <p>Step onto the highway. Explore the gameplay screenshots.</p>
-            </div>
+            <section class="home-gallery" aria-labelledby="gallery-title">
+                <h2 id="gallery-title">Life in the wrong lane.</h2>
+                <p class="gallery-intro">Explore the world of Wrong Way Highway, from open roads to close calls.</p>
+                <figure>
+                    <img src="images/web/featured-graphics.jpg" width="1024" height="500" loading="lazy" decoding="async" alt="Wrong Way Highway promotional artwork showing a blue car dodging a truck and traffic cones">
+                    <figcaption>A first look at the highway.</figcaption>
+                </figure>
+                <div class="screenshot-grid">
+                    <figure>
+                        <img src="screenshots/web/2.jpg" width="540" height="960" loading="lazy" decoding="async" alt="Blue sports car swerving beside an oncoming red truck beneath a freight train bridge">
+                        <figcaption>Against the traffic</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="screenshots/web/10d.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Blue car passing trucks and a vehicle transporter under a pink dusk sky">
+                        <figcaption>Dusk on the highway</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="screenshots/web/9b.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Shielded blue car beneath a flipping vehicle on a city street">
+                        <figcaption>A little protection</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="screenshots/web/4h.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Blue car threading a gap between oncoming container trucks">
+                        <figcaption>Thread the gap</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="screenshots/web/2i.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Car tumbling above a green truck with glowing red trails">
+                        <figcaption>An unexpected turn</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="screenshots/web/5l.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Car suspended above an orange freight container near a railway bridge">
+                        <figcaption>Above the highway</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="screenshots/web/3n.jpg" width="555" height="1200" loading="lazy" decoding="async" alt="Shielded blue car approaching two trucks flipping into the air">
+                        <figcaption>Shield in action</figcaption>
+                    </figure>
+                </div>
+            </section>
 
             <p class="description">
                 Wrong Way Highway is a fast-paced mobile driving game

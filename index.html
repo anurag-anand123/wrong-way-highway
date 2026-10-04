@@ -339,6 +339,81 @@
             }
         }
 
+        .developer-section {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: center;
+            gap: clamp(28px, 5vw, 64px);
+            width: calc(100% - 40px);
+            max-width: 1040px;
+            margin: 64px auto 0;
+            padding: clamp(24px, 4vw, 48px);
+            border-radius: 20px;
+            background: #f3f6fa;
+            text-align: left;
+        }
+
+        .developer-photo {
+            margin: 0;
+        }
+
+        .developer-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .developer-label {
+            margin: 0 0 14px;
+            color: #1557b0;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .developer-copy h2 {
+            margin: 0 0 20px;
+            font-size: clamp(28px, 3.5vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+            color: #111111;
+        }
+
+        .developer-copy p:not(.developer-label) {
+            color: #444444;
+            font-size: 16px;
+            line-height: 1.75;
+            margin: 0 0 18px;
+        }
+
+        .developer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+        }
+
+        .developer-copy a {
+            display: inline-block;
+            padding-block: 10px;
+            color: #1557b0;
+            font-weight: 650;
+            text-underline-offset: 4px;
+        }
+
+        .developer-copy a:focus-visible {
+            outline: 3px solid #1557b0;
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 700px) {
+            .developer-section {
+                grid-template-columns: 1fr;
+                margin-top: 44px;
+            }
+        }
+
         .hero-banner {
             position: relative;
             isolation: isolate;
@@ -574,17 +649,22 @@
                 </div>
             </section>
 
-            <p class="description">
-                Wrong Way Highway is a fast-paced mobile driving game
-                where you drive against incoming traffic, dodge vehicles,
-                survive increasingly difficult waves, and push your run
-                as far as possible.
-            </p>
-
-            <p class="description">
-                Wrong Way Highway is developed and published by Enteriosoft.
-                More information about the game will be available here soon.
-            </p>
+            <section class="developer-section" aria-labelledby="developer-title">
+                <figure class="developer-photo">
+                    <img src="about/me-web.jpg" width="960" height="960" loading="lazy" decoding="async" alt="The developer of Wrong Way Highway holding an iPad running the game, beside a computer displaying its development">
+                </figure>
+                <div class="developer-copy">
+                    <p class="developer-label">Meet the developer</p>
+                    <h2 id="developer-title">One developer.<br>One wrong-way highway.</h2>
+                    <p>Hi, I’m the solo developer behind Wrong Way Highway, published under Enteriosoft.</p>
+                    <p>From the development screen to the iPad in my hands, this is the game I’ve been building: a highway full of oncoming traffic, close calls, and unexpected turns.</p>
+                    <p>It launches on <time datetime="2026-10-26">October 26, 2026</time>. Thanks for taking a look at my game.</p>
+                    <div class="developer-links">
+                        <a href="mailto:anuraganand.enteriosoft@gmail.com">Say hello <span aria-hidden="true">↗</span></a>
+                        <a href="https://www.instagram.com/anuraganand321/" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram (opens in a new tab)">Follow me on Instagram <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </section>
 
         </section>
 

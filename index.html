@@ -341,7 +341,7 @@
 
         .developer-section {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
             align-items: center;
             gap: clamp(28px, 5vw, 64px);
             width: calc(100% - 40px);
@@ -349,7 +349,8 @@
             margin: 64px auto 0;
             padding: clamp(24px, 4vw, 48px);
             border-radius: 20px;
-            background: #f3f6fa;
+            background: #f5f7fb;
+            border: 1px solid #e4eaf2;
             text-align: left;
         }
 
@@ -364,6 +365,27 @@
             border-radius: 12px;
         }
 
+        .developer-milestone {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 18px;
+            padding: 20px 0 0;
+        }
+
+        .developer-milestone strong {
+            color: #1557b0;
+            font-size: 38px;
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        .developer-milestone span {
+            color: #4a5463;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
         .developer-label {
             margin: 0 0 14px;
             color: #1557b0;
@@ -375,7 +397,7 @@
 
         .developer-copy h2 {
             margin: 0 0 20px;
-            font-size: clamp(28px, 3.5vw, 42px);
+            font-size: clamp(28px, 3.2vw, 38px);
             line-height: 1.15;
             letter-spacing: -0.04em;
             color: #111111;
@@ -392,6 +414,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px 24px;
+            padding-top: 12px;
+            border-top: 1px solid #dce3ed;
         }
 
         .developer-copy a {
@@ -652,12 +676,16 @@
             <section class="developer-section" aria-labelledby="developer-title">
                 <figure class="developer-photo">
                     <img src="about/me-web.jpg" width="960" height="960" loading="lazy" decoding="async" alt="The developer of Wrong Way Highway holding an iPad running the game, beside a computer displaying its development">
+                    <figcaption class="developer-milestone">
+                        <strong>50M+</strong>
+                        <span>downloads of my earlier game,<br>Extreme Balancer 3</span>
+                    </figcaption>
                 </figure>
                 <div class="developer-copy">
                     <p class="developer-label">Meet the developer</p>
-                    <h2 id="developer-title">One developer.<br>One wrong-way highway.</h2>
-                    <p>Hi, I’m the solo developer behind Wrong Way Highway, published under Enteriosoft.</p>
-                    <p>From the development screen to the iPad in my hands, this is the game I’ve been building: a highway full of oncoming traffic, close calls, and unexpected turns.</p>
+                    <h2 id="developer-title">From Extreme Balancer 3 to Wrong Way Highway.</h2>
+                    <p>Hi, I’m the solo developer behind Wrong Way Highway and the founder of Enteriosoft. You may know my earlier game, Extreme Balancer 3.</p>
+                    <p>This time, I’m taking you onto a highway full of oncoming traffic, close calls, and unexpected turns. Dodge vehicles, collect power-ups, and see how far you can go as each wave gets tougher.</p>
                     <p>It launches on <time datetime="2026-10-26">October 26, 2026</time>. Thanks for taking a look at my game.</p>
                     <div class="developer-links">
                         <a href="mailto:anuraganand.enteriosoft@gmail.com">Say hello <span aria-hidden="true">↗</span></a>

@@ -457,7 +457,22 @@
             background: rgba(7, 15, 30, 0.68);
         }
 
+        @font-face {
+            font-family: "Jersey 10";
+            src: url("fonts/jersey10-latin.woff") format("woff");
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+
         .hero-banner h1 {
+            font-family: "Jersey 10", Impact, sans-serif;
+            font-weight: 400;
+            font-size: clamp(44px, 9vw, 88px);
+            line-height: 0.95;
+            letter-spacing: 0.035em;
+            text-transform: uppercase;
+            text-wrap: balance;
             color: #ffffff;
             max-width: 900px;
             margin-inline: auto;
@@ -646,4 +661,28 @@ button { font: inherit; cursor: pointer; }
  .store-badges { gap: 16px; }
  .store-option { flex: 1 1 145px; width: auto; padding: 12px 0; }
  .store-option span { max-width: 160px; line-height: 1.5; text-align: center; }
+}
+
+/* Pixel accents: readable system fonts remain on prose and navigation. */
+main h2,
+main h3,
+.info-page h1,
+.primary-link,
+.motion-toggle,
+.lightbox .close,
+#trailer-close {
+    font-family: "Jersey 10", Impact, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.015em;
+}
+.availability h2 { font-size: clamp(25px, 4vw, 30px); line-height: 1.2; }
+.feature-grid h3 { font-size: 27px; }
+.trailer-panel h3 { font-size: 27px; }
+.gallery-subheading { font-size: 30px; }
+.primary-link { font-size: 23px; line-height: 1.15; }
+.motion-toggle, .lightbox .close, #trailer-close { font-size: 21px; }
+.content-section h2, .home-gallery h2, .developer-copy h2 {
+    font-weight: 400;
+    letter-spacing: 0.015em;
+    line-height: 1.15;
 }

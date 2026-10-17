@@ -470,6 +470,10 @@
             font-weight: 400;
             /* This font has one weight; a small matching stroke adds heft. */
             -webkit-text-stroke: 0.8px currentColor;
+            text-shadow:
+                -2px -2px 0 #000, 0 -2px 0 #000, 2px -2px 0 #000,
+                -2px 0 0 #000, 2px 0 0 #000,
+                -2px 2px 0 #000, 0 2px 0 #000, 2px 2px 0 #000;
             font-size: clamp(44px, 9vw, 88px);
             line-height: 0.95;
             letter-spacing: 0.035em;

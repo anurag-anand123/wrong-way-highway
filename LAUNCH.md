@@ -6,6 +6,7 @@ The site is plain HTML, CSS, and JavaScript. Upload the repository's site files 
 - index.html: main landing page
 - ios-beta.html: App Store availability and TestFlight installation guide
 - press.html: press information and ZIP download
+- support.html: player support, troubleshooting, and contact resources
 - showcase.html: secondary preview, intentionally excluded from search indexing
 - privacy-policy.html: game privacy policy
 

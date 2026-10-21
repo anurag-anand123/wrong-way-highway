@@ -703,3 +703,10 @@ main h3,
     }
     .hero-banner h1 span { display: block; }
 }
+
+/* Support content stays readable on small screens and without JavaScript. */
+.support-email { overflow-wrap: anywhere; }
+.support-checklist, .support-resources { padding-left: 22px; }
+.support-checklist li, .support-resources li { margin-block: 10px; }
+.support-faq { margin-top: 40px; }
+.support-page > section > h2 { line-height: 1.2; }
